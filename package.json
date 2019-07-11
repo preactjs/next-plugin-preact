@@ -1,6 +1,6 @@
 {
   "name": "next-plugin-preact",
-  "version": "0.0.1-beta.0",
+  "version": "1.0.0",
   "description": "Next.js plugin for preact X",
   "main": "plugin.js",
   "repository": "https://github.com/sventschui/next-plugin-preact",
