@@ -44,5 +44,5 @@ You can then use `npm run next` or `yarn next` to invoke the next cli.
 When using a customer server you'll need to alias things manually. Add the following snippet to the top of your entrypoint.
 
 ```js
-require('next-plugin-preact/alias)();
+require('next-plugin-preact/alias')();
 ```
