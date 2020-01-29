@@ -6,10 +6,12 @@
   "repository": "https://github.com/sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
   "license": "MIT",
+  "nextjs": { "name": "preact", "required-env": [] },
   "files": [
     "alias.js",
     "cli.js",
-    "plugin.js"
+    "plugin.js",
+    "src"
   ],
   "bin": {
     "next-preact": "./cli.js"

@@ -16,8 +16,22 @@ module.exports = (nextConfig = {}) => Object.assign({}, nextConfig, {
 		});
 
 		if (typeof nextConfig.webpack === 'function') {
-			return nextConfig.webpack(config, options);
+			config = nextConfig.webpack(config, options);
 		}
+
+		if (
+			config.optimization &&
+			config.optimization.splitChunks &&
+			config.optimization.splitChunks.cacheGroups &&
+			config.optimization.splitChunks.cacheGroups.framework
+		  ) {
+			config.optimization.splitChunks.cacheGroups.framework.test = new RegExp(
+			  '(' +
+				config.optimization.splitChunks.cacheGroups.framework.test.source +
+				')|((?<!node_modules.*)[\\/]node_modules[\\/](preact)[\\/])',
+			  config.optimization.splitChunks.cacheGroups.framework.test.flags
+			);
+		  }
 
 		return config;
 	}
