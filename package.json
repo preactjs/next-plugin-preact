@@ -1,12 +1,15 @@
 {
   "name": "next-plugin-preact",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Next.js plugin for preact X",
   "main": "plugin.js",
   "repository": "https://github.com/sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
   "license": "MIT",
-  "nextjs": { "name": "preact", "required-env": [] },
+  "nextjs": {
+    "name": "preact",
+    "required-env": []
+  },
   "files": [
     "alias.js",
     "cli.js",
