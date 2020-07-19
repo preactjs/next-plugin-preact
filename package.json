@@ -19,14 +19,22 @@
   "bin": {
     "next-preact": "./cli.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged *.js demo/*.js demo/pages/*.js"
+    }
+  },
   "devDependencies": {
     "eslint": "^6.0.1",
     "eslint-config-developit": "^1.1.1",
     "eslint-plugin-compat": "2.7.0",
     "eslint-plugin-mocha": "4.12.1",
+    "husky": "^4.2.5",
     "karma": "^4.1.0",
     "next": "^9.0.0",
-    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10"
+    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
   },
   "dependencies": {
     "module-alias": "^2.0.0",

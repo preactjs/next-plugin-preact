@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export default function LazyComp() {
-	return <div>Hi Lazy!</div>;
+  return <div>Hi Lazy!</div>;
 }
