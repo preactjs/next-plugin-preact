@@ -29,8 +29,8 @@
     "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10"
   },
   "dependencies": {
-    "module-alias": "^2.2.0",
-    "preact-render-to-string": "^5.0.4",
+    "module-alias": "^2.0.0",
+    "preact-render-to-string": "^5.0.0",
     "preact-ssr-prepass": "^1.0.0"
   },
   "peerDependencies": {

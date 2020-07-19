@@ -1,5 +1,5 @@
 {
-    "scripts": {
-        "next": "node node_modules/next-plugin-preact/cli.js"
-    }
+  "scripts": {
+    "next": "node ../cli.js"
+  }
 }
