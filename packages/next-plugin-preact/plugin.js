@@ -1,5 +1,8 @@
-module.exports = (nextConfig = {}) =>
-  Object.assign({}, nextConfig, {
+const alias = require("./alias");
+
+alias();
+module.exports = (nextConfig = {}) => {
+  return Object.assign({}, nextConfig, {
     webpack(config, options) {
       if (!options.defaultLoaders) {
         throw new Error(
@@ -42,3 +45,4 @@ module.exports = (nextConfig = {}) =>
       return config;
     },
   });
+};

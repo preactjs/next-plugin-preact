@@ -1,0 +1,11 @@
+{
+  "name": "next-plugin-preact-demo",
+  "private": true,
+  "scripts": {
+    "xxx_next": "next-preact"
+  },
+  "dependencies": {
+    "next": "^9.5.1",
+    "next-plugin-preact": "^2.0.0"
+  }
+}

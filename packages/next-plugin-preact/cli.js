@@ -16,5 +16,5 @@ function patchWorkerJs() {
   }
 }
 
-patchWorkerJs();
+// patchWorkerJs();
 require("next/dist/bin/next");
