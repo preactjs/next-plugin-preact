@@ -1,5 +1,5 @@
 // next.config.js
-const withPreact = require("../");
+const withPreact = require('..');
 
 module.exports = withPreact({
   /* config options here */

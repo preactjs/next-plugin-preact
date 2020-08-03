@@ -1,5 +1,15 @@
 {
   "scripts": {
-    "next": "node ../cli.js"
+    "next": "next",
+    "prod": "next build && next start"
+  },
+  "dependencies": {
+    "preact": "^10.4.6",
+    "preact-render-to-string": "^5.1.10",
+    "react": "npm:@preact/compat@0.0.3",
+    "react-dom": "npm:@preact/compat@0.0.3"
+  },
+  "devDependencies": {
+    "next": "^9.5.1"
   }
 }

@@ -1,0 +1,97 @@
+const { join } = require('path');
+const moduleAlias = require('module-alias');
+
+function npm(name) {
+  return join(process.cwd(), 'node_modules', name);
+}
+
+moduleAlias.addAliases({
+  react: npm('preact/compat'),
+  'react-dom': npm('preact/compat'),
+  'react-ssr-prepass': npm('preact-ssr-prepass'),
+  webpack: npm('webpack')
+});
+
+// this has to come after the webpack alias is set up:
+const withPrefresh = require('@prefresh/next');
+
+for (const dep of ['preact', 'preact-render-to-string']) {
+  try {
+    require.resolve(dep);
+  } catch (e) {
+    throw Error(`[preact] Missing "${dep}" dependency:\n  npm i ${dep}`);
+  }
+}
+
+const pkg = require(join(process.cwd(), 'package.json'));
+const deps = pkg.dependencies;
+if (deps) {
+  let toInstall = [];
+  if (!deps.react || /^[\^~\d]/.test(deps.react)) {
+    toInstall.push('react@npm:@preact/compat');
+  }
+  if (!deps['react-dom'] || /^[\^~\d]/.test(deps['react-dom'])) {
+    toInstall.push('react-dom@npm:@preact/compat');
+  }
+  if (toInstall.length) {
+    throw (
+      `[preact] Missing/incorrect alias dependencies.\nPlease run:\n` +
+      `  npm i ${toInstall.join(' ')}`
+    );
+  }
+}
+
+module.exports = function withPreact(nextConfig = {}) {
+  return withPrefresh(
+    Object.assign({}, nextConfig, {
+      webpack(config, options) {
+        const { dev, isServer, defaultLoaders } = options;
+
+        if (!defaultLoaders) {
+          throw new Error(
+            'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
+          );
+        }
+
+        // Move Preact into the framework chunk instead of duplicating in routes:
+        const splitChunks =
+          config.optimization && config.optimization.splitChunks;
+        if (splitChunks) {
+          const cacheGroups = splitChunks.cacheGroups;
+          const test = /[\\/]node_modules[\\/](preact|preact-render-to-string|preact-context-provider)[\\/]/;
+          if (cacheGroups.framework) {
+            cacheGroups.preact = Object.assign({}, cacheGroups.framework, {
+              test
+            });
+            // if you want to merge the 2 small commons+framework chunks:
+            // cacheGroups.commons.name = 'framework';
+          }
+        }
+
+        // Install webpack aliases:
+        const aliases = config.resolve.alias || (config.resolve.alias = {});
+        aliases.react = aliases['react-dom'] = 'preact/compat';
+        aliases['react-ssr-prepass'] = 'preact-ssr-prepass';
+
+        // Automatically inject Preact DevTools:
+        if (dev && !isServer) {
+          const entry = config.entry;
+          config.entry = function () {
+            return entry().then(function (entries) {
+              entries['main.js'] = ['preact/debug'].concat(
+                entries['main.js'] || []
+              );
+              return entries;
+            });
+          };
+        }
+
+        if (typeof nextConfig.webpack === 'function') {
+          config = nextConfig.webpack(config, options);
+        }
+
+        return config;
+      }
+    })
+  );
+};
