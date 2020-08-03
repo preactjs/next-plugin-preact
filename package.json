@@ -8,5 +8,14 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "husky": "^4.2.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged packages/next-plugin-preact/*.js packages/demo/*.js packages/demo/pages/*.js"
+    }
+  }
 }

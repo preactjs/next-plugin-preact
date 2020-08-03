@@ -1,20 +1,24 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const path = require("path");
 require("./alias")();
 
-function patchWorkerJs() {
-  const workerJs = require.resolve("next/dist/export/worker.js");
-  const aliasJs = path.join(__dirname, "./alias.js");
-  const aliasPath = path.relative(path.dirname(workerJs), aliasJs);
-  const requireStatement = `require("${aliasPath}")();`;
+const JestWorker = require("jest-worker");
 
-  const content = fs.readFileSync(workerJs, "utf8");
-
-  if (content.indexOf(requireStatement) === -1) {
-    fs.writeFileSync(workerJs, requireStatement + content);
+JestWorker.default = class CustomJestWorker extends JestWorker.default {
+  constructor(workerPath, options) {
+    super(
+      workerPath,
+      Object.assign({}, options, {
+        forkOptions: Object.assign({}, options && options.forkOptions, {
+          execArgv: [].concat(
+            options && options.forkOptions && options.forkOptions.execArgv
+              ? options.forkOptions.execArgv
+              : process.execArgv.filter((v) => !/^--(debug|inspect)/.test(v)),
+            [`--require=${require.resolve("next-plugin-preact/do-alias.js")}`]
+          ),
+        }),
+      })
+    );
   }
-}
+};
 
-// patchWorkerJs();
 require("next/dist/bin/next");

@@ -19,11 +19,6 @@
   "bin": {
     "next-preact": "./cli.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged *.js demo/*.js demo/pages/*.js"
-    }
-  },
   "devDependencies": {
     "eslint": "^6.0.1",
     "eslint-config-developit": "^1.1.1",
