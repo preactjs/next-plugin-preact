@@ -20,10 +20,6 @@
     "next-preact": "./cli.js"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-developit": "^1.1.1",
-    "eslint-plugin-compat": "2.7.0",
-    "eslint-plugin-mocha": "4.12.1",
     "husky": "^4.2.5",
     "karma": "^4.1.0",
     "next": "^9.0.0",
