@@ -1,3 +1,5 @@
+name: CI
+
 on: push
 
 jobs:
@@ -5,7 +7,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node: ['10', '12', '13', '14']
+        node: ['12', '13', '14']
     name: Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
