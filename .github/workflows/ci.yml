@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: yarn
-      - run: yarn --cwd packages/demo prod
+      - run: yarn --cwd packages/demo next build
