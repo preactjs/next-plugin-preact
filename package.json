@@ -1,6 +1,6 @@
 {
   "name": "next-plugin-preact-workspace",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "index.js",
   "repository": "https://github.com/sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
@@ -9,13 +9,40 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-developit": "^1.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.5",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged packages/next-plugin-preact/*.js packages/demo/*.js packages/demo/pages/*.js"
+      "pre-commit": "pretty-quick --staged packages/next-plugin-preact/*.js packages/demo/*.js packages/demo/pages/*.js && eslint packages/**/*.js"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "eslintConfig": {
+    "extends": [
+      "developit",
+      "prettier"
+    ],
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "16.13"
+      }
+    },
+    "rules": {
+      "indent": [
+        "warn",
+        2
+      ]
     }
   }
 }

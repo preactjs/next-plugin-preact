@@ -1,52 +1,30 @@
 {
   "name": "next-plugin-preact",
   "version": "2.0.0",
-  "description": "Next.js plugin for preact X",
-  "main": "plugin.js",
-  "repository": "https://github.com/sventschui/next-plugin-preact",
+  "description": "Preact plugin for Next.js",
+  "main": "index.js",
+  "repository": "sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
   "license": "MIT",
   "nextjs": {
     "name": "preact",
     "required-env": []
   },
+  "scripts": {
+    "postinstall": "node ./postinstall.js"
+  },
   "files": [
-    "alias.js",
-    "cli.js",
-    "plugin.js",
-    "src"
+    "index.js",
+    "postinstall.js"
   ],
-  "bin": {
-    "next-preact": "./cli.js"
-  },
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "karma": "^4.1.0",
-    "next": "^9.0.0",
-    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "module-alias": "^2.0.0",
-    "preact-render-to-string": "^5.0.0",
-    "preact-ssr-prepass": "^1.0.0"
+    "@prefresh/next": "^0.3.2",
+    "module-alias": "^2.0.0"
   },
   "peerDependencies": {
-    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10"
-  },
-  "eslintConfig": {
-    "extends": "developit",
-    "rules": {
-      "prefer-rest-params": 0,
-      "prefer-spread": 0,
-      "no-cond-assign": 0,
-      "react/jsx-no-bind": 0,
-      "react/prefer-stateless-function": 0,
-      "react/sort-comp": 0,
-      "jest/valid-expect": 0,
-      "jest/no-disabled-tests": 0,
-      "react/no-find-dom-node": 0
-    }
+    "preact": ">=10",
+    "preact-render-to-string": ">=5",
+    "preact-ssr-prepass": ">=1"
   }
 }
