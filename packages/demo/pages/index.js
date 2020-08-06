@@ -1,7 +1,7 @@
-import React from "react";
-import dynamic from "next/dynamic";
+import React from 'react';
+import dynamic from 'next/dynamic';
 
-const L = dynamic(() => import("../lazy"));
+const L = dynamic(() => import('../lazy'));
 
 export default function App() {
   return (

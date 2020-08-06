@@ -1,5 +1,6 @@
 const { join } = require('path');
 const moduleAlias = require('module-alias');
+const esc = require('./esc');
 
 function npm(name) {
   return name;
@@ -98,12 +99,16 @@ function validateDependencies() {
   }
 
   if (toInstall.length) {
-    console.error(
-      `[preact] Missing/incorrect dependencies.\nPlease run:
-    npm i --save ${toInstall.join(' ')}
-    OR
-    yarn add ${toInstall.join(' ')}`
-    );
+    const lines = '-'.repeat(Math.max(process.stdout.columns - 1, 10));
+    console.error(`${lines}${esc('31;0m')}
+[preact] Missing/incorrect dependencies.
+Please run:
+  npm i ${toInstall.join(' ')}
+
+OR:
+
+  yarn add ${toInstall.join(' ')}
+${lines}${esc('0m')}`);
     process.exit(-1);
   }
 }
