@@ -10,7 +10,7 @@ ${esc('0m')}
 
   npm i --save react@npm:@preact/compat react-dom@npm:@preact/compat
 
-  OR:
+or:
 
   yarn add react@npm:@preact/compat react-dom@npm:@preact/compat
 ${lines}

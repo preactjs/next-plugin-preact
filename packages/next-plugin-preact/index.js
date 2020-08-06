@@ -105,7 +105,7 @@ function validateDependencies() {
 Please run:
   npm i ${toInstall.join(' ')}
 
-OR:
+or:
 
   yarn add ${toInstall.join(' ')}
 ${lines}${esc('0m')}`);
