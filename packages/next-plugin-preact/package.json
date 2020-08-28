@@ -11,7 +11,8 @@
     "required-env": []
   },
   "scripts": {
-    "postinstall": "node ./postinstall.js"
+    "postinstall": "node ./postinstall.js",
+    "prepare": "cp ../../README.md ."
   },
   "files": [
     "esc.js",

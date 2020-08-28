@@ -1,3 +1,6 @@
 node_modules/
 .next/
 dist/
+packages/next-plugin-preact/README.md
+packages/next-plugin-preact/next-plugin-preact*.tgz
+packages/next-plugin-preact/package
