@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "next": "node ../cli.js"
-  }
-}

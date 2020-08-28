@@ -1,0 +1,31 @@
+{
+  "name": "next-plugin-preact",
+  "version": "2.0.0",
+  "description": "Preact plugin for Next.js",
+  "main": "index.js",
+  "repository": "sventschui/next-plugin-preact",
+  "author": "Sven Tschui <sventschui@gmail.com>",
+  "license": "MIT",
+  "nextjs": {
+    "name": "preact",
+    "required-env": []
+  },
+  "scripts": {
+    "postinstall": "node ./postinstall.js"
+  },
+  "files": [
+    "esc.js",
+    "index.js",
+    "postinstall.js"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "@prefresh/next": "^0.3.2",
+    "module-alias": "^2.0.0"
+  },
+  "peerDependencies": {
+    "preact": ">=10",
+    "preact-render-to-string": ">=5",
+    "preact-ssr-prepass": ">=1"
+  }
+}

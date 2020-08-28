@@ -1,4 +1,3 @@
 node_modules/
-demo/node_modules/
-!demo/node_modules/next-plugin-preact
-demo/.next/
+.next/
+dist/

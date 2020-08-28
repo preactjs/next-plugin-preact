@@ -1,61 +1,48 @@
 {
-  "name": "next-plugin-preact",
-  "version": "2.0.0",
-  "description": "Next.js plugin for preact X",
-  "main": "plugin.js",
+  "name": "next-plugin-preact-workspace",
+  "version": "0.0.0",
+  "main": "index.js",
   "repository": "https://github.com/sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
   "license": "MIT",
-  "nextjs": {
-    "name": "preact",
-    "required-env": []
-  },
-  "files": [
-    "alias.js",
-    "cli.js",
-    "plugin.js",
-    "src"
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
-  "bin": {
-    "next-preact": "./cli.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged *.js demo/*.js demo/pages/*.js"
-    }
-  },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-developit": "^1.1.1",
-    "eslint-plugin-compat": "2.7.0",
-    "eslint-plugin-mocha": "4.12.1",
+    "eslint": "^7.6.0",
+    "eslint-config-developit": "^1.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.5",
-    "karma": "^4.1.0",
-    "next": "^9.0.0",
-    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
-  "dependencies": {
-    "module-alias": "^2.0.0",
-    "preact-render-to-string": "^5.0.0",
-    "preact-ssr-prepass": "^1.0.0"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged packages/next-plugin-preact/*.js packages/demo/*.js packages/demo/pages/*.js && eslint packages/**/*.js"
+    }
   },
-  "peerDependencies": {
-    "preact": "^10.0.0-beta.3 || ^10.0.0-rc.0 || ^10"
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
   },
   "eslintConfig": {
-    "extends": "developit",
+    "extends": [
+      "developit",
+      "prettier"
+    ],
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "16.13"
+      }
+    },
     "rules": {
-      "prefer-rest-params": 0,
-      "prefer-spread": 0,
-      "no-cond-assign": 0,
-      "react/jsx-no-bind": 0,
-      "react/prefer-stateless-function": 0,
-      "react/sort-comp": 0,
-      "jest/valid-expect": 0,
-      "jest/no-disabled-tests": 0,
-      "react/no-find-dom-node": 0
+      "indent": [
+        "warn",
+        2
+      ]
     }
   }
 }
