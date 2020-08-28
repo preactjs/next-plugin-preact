@@ -1,6 +1,6 @@
 {
   "name": "next-plugin-preact-workspace",
-  "version": "0.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "repository": "https://github.com/sventschui/next-plugin-preact",
   "author": "Sven Tschui <sventschui@gmail.com>",
