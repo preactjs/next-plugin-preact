@@ -14,7 +14,7 @@ yarn add next next-plugin-preact preact react@npm:@preact/compat react-dom@npm:@
 
 ## Usage
 
-Create a next.config.js in your project and apply the plugin. This 
+Create a next.config.js in your project and apply the plugin.
 
 ```js
 // next.config.js
