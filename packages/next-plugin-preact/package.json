@@ -21,7 +21,7 @@
   ],
   "devDependencies": {},
   "dependencies": {
-    "@prefresh/next": "^0.3.2",
+    "@prefresh/next": "^1.0.0",
     "module-alias": "^2.0.0"
   },
   "peerDependencies": {
