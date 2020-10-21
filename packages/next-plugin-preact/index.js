@@ -50,13 +50,41 @@ module.exports = function withPreact(nextConfig = {}) {
         aliases.react = aliases['react-dom'] = 'preact/compat';
         aliases['react-ssr-prepass'] = 'preact-ssr-prepass';
 
-        // Automatically inject Preact DevTools:
-        if (dev && !isServer) {
+        // Automatically inject Preact DevTools
+        if (dev) {
+          const prependToEntry = isServer ? 'pages/_document' : 'main.js';
+
+          const rtsVersion = require('preact-render-to-string/package.json')
+            .version.split('.')
+            .map(Number);
+          // render to string <= 5.1.10 requires a monkey-patch to invoke preact.options._diff
+          const requiresRTSDiffHookPatch =
+            rtsVersion[0] < 5 ||
+            (rtsVersion[0] === 5 &&
+              (rtsVersion[1] < 1 ||
+                (rtsVersion[1] === 1 && rtsVersion[2] <= 10)));
+
+          const itemsToPrepend =
+            isServer && requiresRTSDiffHookPatch
+              ? [
+                  'preact/debug',
+                  'next-plugin-preact/patches/rts-invoke-diff-hook.js'
+                ]
+              : ['preact/debug'];
+
+          if (isServer && requiresRTSDiffHookPatch) {
+            process.stdout.write(
+              `${esc('31;1m')}next-plugin-preact:${esc(
+                '0m'
+              )} The preact-render-to-string in use requires a monkey-patch for options._diff. Upgrade to preact-render-to-string > 5.1.10 once available!\n`
+            );
+          }
+
           const entry = config.entry;
           config.entry = function () {
             return entry().then(function (entries) {
-              entries['main.js'] = ['preact/debug'].concat(
-                entries['main.js'] || []
+              entries[prependToEntry] = itemsToPrepend.concat(
+                entries[prependToEntry] || []
               );
               return entries;
             });

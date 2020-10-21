@@ -17,7 +17,8 @@
   "files": [
     "esc.js",
     "index.js",
-    "postinstall.js"
+    "postinstall.js",
+    "patches"
   ],
   "devDependencies": {},
   "dependencies": {

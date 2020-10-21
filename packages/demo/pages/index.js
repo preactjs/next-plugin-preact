@@ -1,13 +1,17 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
-const L = dynamic(() => import('../lazy'));
+const Lazy = dynamic(() => import('../lazy'));
 
-export default function App() {
+export default function IndexPage() {
   return (
     <div>
       Hello world!
-      <L />
+      <Head>
+        <link rel="stylesheet" href="http://example.org" />
+      </Head>
+      <Lazy />
     </div>
   );
 }
