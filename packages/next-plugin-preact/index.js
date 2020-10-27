@@ -2,15 +2,11 @@ const { join } = require('path');
 const moduleAlias = require('module-alias');
 const esc = require('./esc');
 
-function npm(name) {
-  return name;
-}
-
 moduleAlias.addAliases({
-  react: npm('preact/compat'),
-  'react-dom': npm('preact/compat'),
-  'react-ssr-prepass': npm('preact-ssr-prepass'),
-  webpack: npm('webpack')
+  react: 'preact/compat',
+  'react-dom': 'preact/compat',
+  'react-ssr-prepass': 'preact-ssr-prepass',
+  webpack: 'webpack'
 });
 
 // this has to come after the webpack alias is set up:
