@@ -1098,25 +1098,25 @@
   resolved "https://registry.yarnpkg.com/@prefresh/core/-/core-1.1.1.tgz#516bd9cf47c667fbd4c82ebb53bb06535546a512"
   integrity sha512-JKh+tUzswqZgA3+lYywIcJt261M0xjI0FpMnZXQ/85bPOl/I4HdVeEUcT9rjXqsiZRrjHJMwSjZWI/HqsqgqyA==
 
-"@prefresh/next@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@prefresh/next/-/next-1.3.0.tgz#cfb94e45ba822fbd908ce987673937c043a83ba5"
-  integrity sha512-jJmU0FuznXiaNoBVnJq2fjZgns9VT8pV7PqOk11Fkk/mE5t8spf98G7x/YU5+OLlzH94yZcJevdkzw2FiXfcPg==
+"@prefresh/next@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/next/-/next-1.4.0.tgz#d8b11bd640d3447b62ed8732585d91c73da0e552"
+  integrity sha512-nrnkuk84G2jf1dG5AyK7rruI+9LJSCBs4zIhi1VFv4dFPOlUQ4XrqqbUQZ/p743ihXEE1qLqkD7Ofiv8E0UvGA==
   dependencies:
     "@prefresh/babel-plugin" "0.2.2"
     "@prefresh/core" "^1.0.0"
     "@prefresh/utils" "^1.0.0"
-    "@prefresh/webpack" "^2.1.0"
+    "@prefresh/webpack" "^2.2.0"
 
 "@prefresh/utils@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@prefresh/utils/-/utils-1.0.0.tgz#183846f8c826982a5f2a408a5b0990a3d12b4383"
   integrity sha512-98epbP6cLl8qDgw0nq1GDbQGURVOkQnYpgfU+nxtGTFBJwJEYxViwXi02WEQcytS8Kr2xjWA6t66qz9RLxtbBA==
 
-"@prefresh/webpack@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@prefresh/webpack/-/webpack-2.1.0.tgz#9ff9664598bccbbae87cc2321b3db70f20519517"
-  integrity sha512-g2huTlTpc03qjFgE7eiJljQpwHSm/GfDRPBoVhyGkCU/GOCb+GyQkJ5a5HOEsgtTbze2/hrMdk+kVk/XGDPJiQ==
+"@prefresh/webpack@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/webpack/-/webpack-2.2.0.tgz#65bd9d3fb92ad89c6437d4b9b7459847050abd42"
+  integrity sha512-2ThnpimTsZ7uAyKVlYLnl8X6Re3qnmqSYJAGCEtHdsk6fzZoPSw4Oy/+S+gu9dTWOGYwwqrKpeDXqSe2vmmyqw==
   dependencies:
     "@prefresh/core" "^1.0.0"
     "@prefresh/utils" "^1.0.0"
