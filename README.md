@@ -3,13 +3,13 @@
 ## Installation
 
 ```sh
-npm install --save next next-plugin-preact preact react@npm:@preact/compat react-dom@npm:@preact/compat preact-render-to-string
+npm install --save next next-plugin-preact preact react@npm:@preact/compat react-dom@npm:@preact/compat react-ssr-prepass@npm:preact-ssr-prepass preact-render-to-string
 ```
 
 or
 
 ```sh
-yarn add next next-plugin-preact preact react@npm:@preact/compat react-dom@npm:@preact/compat preact-render-to-string
+yarn add next next-plugin-preact preact react@npm:@preact/compat react-dom@npm:@preact/compat react-ssr-prepass@npm:preact-ssr-prepass preact-render-to-string
 ```
 
 ## Usage
