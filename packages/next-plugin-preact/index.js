@@ -20,6 +20,17 @@ module.exports = function withPreact(nextConfig = {}) {
       webpack(config, options) {
         const { dev, isServer, defaultLoaders } = options;
 
+        // Disable package exports field resolution in webpack. It can lead
+        // to dual package hazards where packages are imported twice: One
+        // commonjs version and one ESM version. This breaks hooks which have
+        // to rely on a singleton by design (nothing we can do about that).
+        // See #25 and https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_dual_package_hazard
+        // for more information.
+        const webpackVersion = options.webpack.version;
+        if (+webpackVersion.split('.')[0] >= 5) {
+          config.resolve.exportsFields = [];
+        }
+
         if (!defaultLoaders) {
           throw new Error(
             'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
