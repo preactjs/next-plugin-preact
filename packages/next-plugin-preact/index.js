@@ -27,7 +27,7 @@ module.exports = function withPreact(nextConfig = {}) {
         // See #25 and https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_dual_package_hazard
         // for more information.
         const webpackVersion = options.webpack.version;
-        if (+webpackVersion.split('.')[0] >= 5) {
+        if (isServer && +webpackVersion.split('.')[0] >= 5) {
           config.resolve.exportsFields = [];
         }
 
