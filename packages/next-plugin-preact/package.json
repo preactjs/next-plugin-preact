@@ -22,7 +22,8 @@
   ],
   "devDependencies": {},
   "dependencies": {
-    "@prefresh/next": "^1.4.0",
+    "@prefresh/next": "^1.4.6",
+    "@prefresh/webpack": "^3.3.0",
     "module-alias": "^2.0.0"
   },
   "peerDependencies": {
