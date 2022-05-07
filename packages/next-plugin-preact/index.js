@@ -18,7 +18,7 @@ module.exports = function withPreact(nextConfig = {}) {
   return withPrefresh(
     Object.assign({}, nextConfig, {
       webpack(config, options) {
-        const { dev, isServer, defaultLoaders } = options;
+        const { dev, isServer, nextRuntime, defaultLoaders } = options;
 
         // Disable package exports field resolution in webpack. It can lead
         // to dual package hazards where packages are imported twice: One
@@ -58,7 +58,7 @@ module.exports = function withPreact(nextConfig = {}) {
         aliases['react-ssr-prepass'] = 'preact-ssr-prepass';
 
         // Automatically inject Preact DevTools
-        if (dev) {
+        if (dev && nextRuntime !== 'edge') {
           const prependToEntry = isServer ? 'pages/_document' : 'main.js';
 
           const rtsVersion = require('preact-render-to-string/package.json')
