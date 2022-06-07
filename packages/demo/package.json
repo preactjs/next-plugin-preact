@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "next": "^9.5.4",
+    "next": "^12.1.0",
     "next-plugin-preact": "^3.0.2",
     "preact": "^10.4.6",
     "preact-render-to-string": "^5.1.10",
