@@ -1,13 +1,13 @@
 {
   "name": "next-plugin-preact",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Preact plugin for Next.js",
   "main": "index.js",
   "repository": "preactjs/next-plugin-preact",
   "authors": [
     "Sven Tschui <sventschui@gmail.com>",
-		"The Preact Authors (https://github.com/preactjs/preact/contributors)"
-	],
+    "The Preact Authors (https://github.com/preactjs/preact/contributors)"
+  ],
   "license": "MIT",
   "nextjs": {
     "name": "preact",
